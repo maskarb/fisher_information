@@ -65,6 +65,7 @@ def _get_opt_h(x_list, eps):
 def _get_uni_kde(data, bw_method="silverman"):
     return kde(data, bw_method=bw_method)
 
+
 def _get_array_bounds(kernel, low_bound, high_bound):
     low = ls(_ls_get_value, 0, args=(kernel, low_bound))
     high = ls(_ls_get_value, 0, args=(kernel, high_bound))
@@ -93,10 +94,11 @@ def temporal_kern(x, dN, over, eps):
         fi.append(kernel_fi(window, opt_h))
     return fi
 
+
 if __name__ == "__main__":
 
-    df = read_csv('cantar2019.csv')
-    x = list(df['storage'])
+    df = read_csv("cantar2019.csv")
+    x = list(df["storage"])
 
     k = 2
     dN = 48

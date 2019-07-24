@@ -3,10 +3,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
+
 def make_bin_edges(sos, k, x):
     middle, minim, maxim = np.mean(x), min(x), max(x)
     d_x = sos * k
-    middle_low_edge, middle_high_edge = middle - d_x/2, middle + d_x/2
+    middle_low_edge, middle_high_edge = middle - d_x / 2, middle + d_x / 2
     edges = [middle_low_edge, middle_high_edge]
     temp = middle_low_edge
     while temp > minim:
@@ -17,6 +18,7 @@ def make_bin_edges(sos, k, x):
         temp += d_x
         edges.append(temp)
     return sorted(edges)
+
 
 def size_of_state(x, k, window_size):
     sos_temp = []
@@ -29,6 +31,7 @@ def size_of_state(x, k, window_size):
         sos = min(sos_temp) * k
     return sos
 
+
 def amp_sos_fisher(x_list, bins):
     hist = np.histogram(x_list, bins=bins, density=False)
     counts = [0] + list(hist[0] / len(x_list)) + [0]
@@ -39,6 +42,7 @@ def amp_sos_fisher(x_list, bins):
         ]
     )
 
+
 def discrete_amp(x_list, k):
     sos = np.std(x_list, ddof=1) * k
     bins = make_bin_edges(sos, k, x_list)
@@ -48,17 +52,18 @@ def discrete_amp(x_list, k):
 def temporal_amp(x_list, k, window_size, over):
     N = len(x_list)
     sos = size_of_state(x_list, k, window_size)
-    bins = make_bin_edges(sos, k, x_list) ########### move this below
+    bins = make_bin_edges(sos, k, x_list)  ########### move this below
     fi = []
-    for i  in range(0, 1 + N - window_size, over):
+    for i in range(0, 1 + N - window_size, over):
         temp = x_list[i : i + window_size]
         ################## move above to here
         fi.append(amp_sos_fisher(temp, bins))
     return fi
 
+
 if __name__ == "__main__":
-    df = pd.read_csv('cantar2019.csv')
-    x = list(df['storage'])
+    df = pd.read_csv("cantar2019.csv")
+    x = list(df["storage"])
 
     k = 2
     dN = 48
