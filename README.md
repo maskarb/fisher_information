@@ -1,5 +1,8 @@
 # Fisher Information
 
+Example dataset:
+* [cantar2019.csv](cantar2019.csv) -> dataset for Cantareira system in Brazil. Includes monthly precipitation and storage values from Jan-2004 to Apr-2019.
+
 Discrete amplitude method with disjoint bins:
 * [discrete_amp_nrw.py](discrete_amp_nrw.py) -> bins are determined based on entire time series, used within each window
 * [discrete_amp_rw.py](discrete_amp_rw.py) -> bins are determined based on sliding window
