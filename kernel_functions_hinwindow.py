@@ -88,7 +88,7 @@ def kernel_fi(x_list, eps):
 def temporal_kern(x, dN, over, eps):
     N = len(x)
     fi = []
-    for i in range(0, N - dN, over):
+    for i in range(0, 1 + N - dN, over):
         window = x[i : i + dN]
         fi.append(kernel_fi(window, eps))
     return fi
@@ -108,5 +108,5 @@ if __name__ == "__main__":
     fig, ax1 = plt.subplots(figsize=(5, 4))
     ax1.plot(x, "k")
     ax2 = ax1.twinx()
-    ax2.plot(range(dN, len(x), over), fi, "b")
+    ax2.plot(range(dN, 1 + len(x), over), fi, "b")
     plt.show()
