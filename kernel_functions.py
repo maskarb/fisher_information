@@ -1,3 +1,18 @@
+"""
+The optimal bandwidth calculations are based on work published here:
+http://www.umiacs.umd.edu/labs/cvl/pirl/vikas/Software/optimal_bw/optimal_bw_code.htm
+
+References:
+Fast optimal bandwidth selection for kernel density estimation. 
+    Vikas C. Raykar and Ramani Duraiswami, 
+    In Proceedings of the sixth SIAM International Conference on Data Mining, 
+    Bethesda, April 2006, pp. 524-528.  
+
+Very fast optimal bandwidth selection for univariate kernel density estimation.  
+    Vikas C. Raykar and Ramani Duraiswami, CS-TR-4774, Department of computer science, 
+    University of Maryland, Collegepark. 
+"""
+
 import matplotlib.pyplot as plt
 
 from numpy import gradient, inf, linspace, pi, power, sqrt, std
