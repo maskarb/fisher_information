@@ -107,7 +107,7 @@ if __name__ == "__main__":
     df = pd.read_csv("cantar2019.csv")
     x = list(df["storage"])
 
-    k = 2
+    k = 4
     dN = 48
     over = 1
     fi = fisher_univariate(x, k, dN, over)

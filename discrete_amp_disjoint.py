@@ -4,9 +4,9 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 
-def make_bin_edges(sos, k, x):
+def make_bin_edges(sos, x):
     middle, minim, maxim = np.mean(x), min(x), max(x)
-    d_x = sos * k
+    d_x = sos
     middle_low_edge, middle_high_edge = middle - d_x / 2, middle + d_x / 2
     edges = [middle_low_edge, middle_high_edge]
     temp = middle_low_edge
@@ -64,7 +64,7 @@ if __name__ == "__main__":
     df = pd.read_csv("cantar2019.csv")
     x = list(df["storage"])
 
-    k = 2
+    k = 4
     dN = 48
     over = 1
     fi = temporal_amp(x, k, dN, over)
