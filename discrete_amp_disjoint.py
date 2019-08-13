@@ -45,14 +45,14 @@ def amp_sos_fisher(x_list, bins):
 
 def discrete_amp(x_list, k):
     sos = np.std(x_list, ddof=1) * k
-    bins = make_bin_edges(sos, k, x_list)
+    bins = make_bin_edges(sos, x_list)
     return amp_sos_fisher(x_list, bins)
 
 
 def temporal_amp(x_list, k, window_size, over):
     N = len(x_list)
     sos = size_of_state(x_list, k, window_size)
-    bins = make_bin_edges(sos, k, x_list)
+    bins = make_bin_edges(sos, x_list)
     fi = []
     for i in range(0, 1 + N - window_size, over):
         temp = x_list[i : i + window_size]
