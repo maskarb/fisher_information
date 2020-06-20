@@ -14,7 +14,6 @@ Very fast optimal bandwidth selection for univariate kernel density estimation.
 """
 
 import matplotlib.pyplot as plt
-
 from numpy import gradient, inf, linspace, pi, power, sqrt, std
 from pandas import read_csv
 from scipy.integrate import romb, simps
