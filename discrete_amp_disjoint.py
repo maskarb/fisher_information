@@ -25,21 +25,15 @@ def size_of_state(x, k, window_size):
     for i in range(1 + len(x) - window_size):
         A = x[i : i + window_size]
         sos_temp.append(np.std(A, ddof=1))
-    if not sos_temp:
-        sos = 0
-    else:
-        sos = min(sos_temp) * k
-    return sos
+    return 0 if not sos_temp else min(sos_temp) * k
 
 
 def amp_sos_fisher(x_list, bins):
     hist = np.histogram(x_list, bins=bins, density=False)
     counts = [0] + list(hist[0] / len(x_list)) + [0]
     return sum(
-        [
-            (np.sqrt(counts[x + 1]) - np.sqrt(counts[x])) ** 2
-            for x in range(len(counts) - 1)
-        ]
+        (np.sqrt(counts[x + 1]) - np.sqrt(counts[x])) ** 2
+        for x in range(len(counts) - 1)
     )
 
 

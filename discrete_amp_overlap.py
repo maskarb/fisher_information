@@ -86,11 +86,11 @@ def fisher_univariate(x_list, k, w_size, w_incr):
                 FI_temp = 0
                 for i in range(len(prob_q) - 1):
                     FI_temp += (prob_q[i] - prob_q[i + 1]) ** 2
-                FI_temp = 4 * FI_temp
+                FI_temp *= 4
                 FI.append(FI_temp)
-            for i in range(len(FI)):
-                if FI[i] != 8.0:
-                    k_init.append(FI.index(FI[i]))
+            for item in FI:
+                if item != 8.0:
+                    k_init.append(FI.index(item))
                     break
             FI_final.append(FI)
     if not k_init:
