@@ -10,7 +10,7 @@ Boost.python 1.67
 
     sudo apt install libboost-python1.67-dev
 
-To compile the `fast_deriv.cpp`, do the following:
+If the `fast_deriv.cpp` needs compiling, the following commands should do the trick:
 
     g++ -I /usr/include/python3.8 -fpic -c -o fast_deriv.o fast_deriv.cpp
 
