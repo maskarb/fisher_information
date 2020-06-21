@@ -108,3 +108,4 @@ venv.bak/
 
 # project files
 !fast_deriv.so
+*.png

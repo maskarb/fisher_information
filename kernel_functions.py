@@ -125,4 +125,4 @@ if __name__ == "__main__":
     ax1.plot(x, "k")
     ax2 = ax1.twinx()
     ax2.plot(range(dN, 1 + len(x), over), fi, "b")
-    plt.show()
+    plt.savefig("kernel_functions.png")
