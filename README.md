@@ -26,14 +26,14 @@ Example dataset:
 Discrete amplitude method with disjoint bins:
 * [discrete_amp_disjoint.py](discrete_amp_disjoint.py) -> bins are determined based on entire time series, used within each window
 
-    python discrete_amp_disjoint.py
+        python discrete_amp_disjoint.py
 
 Discrete amplitude method with overlapping bins:
 * [discrete_amp_overlap.py](discrete_amp_overlap.py)
 
-    python discrete_amp_overlap.py
+        python discrete_amp_overlap.py
 
 Kernel method:
 * [kernel_functions.py](kernel_functions.py) -> bandwidth determined for entire time series, used within each window
 
-    python kernel_functions.py
+        python kernel_functions.py
